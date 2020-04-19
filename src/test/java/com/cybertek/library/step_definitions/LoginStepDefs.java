@@ -18,7 +18,8 @@ public class LoginStepDefs {
     public void i_am_on_the_login_page() {
         System.out.println("Going to the login page");
         // login
-        // Driver.getDriver()  --> gives us a driver object
+        // Driver.getDriver()  --> gives us browser a driver object
+        //there is no parent class, we get in static way
         String url = ConfigurationReader.getProperty("url");
         Driver.getDriver().get(url);
 
@@ -31,6 +32,11 @@ public class LoginStepDefs {
         String password = ConfigurationReader.getProperty("librarian_password");
         loginPage.login(email, password);
     }
+    /*
+     @Then("dashboard should be displayed") is coming from Cucumber
+     String actualTitle = Driver.getDriver().getCurrentUrl();--. is from browser
+      Assert.assertTrue(actualTitle.endsWith("dashboard"))--> from JUnit
+     */
 
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
@@ -38,7 +44,8 @@ public class LoginStepDefs {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
         wait.until(ExpectedConditions.urlContains("dashboard"));
         String actualTitle = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualTitle.endsWith("dashboard"));
+        Assert.assertTrue(actualTitle.endsWith("dashboard")); //from JUnit
+        //JUnit has almost same methods like TestNG
     }
 
     @When("I login as a student")

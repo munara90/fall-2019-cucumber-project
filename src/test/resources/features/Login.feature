@@ -5,7 +5,7 @@
 Feature: Login
   As a user, I should be able to Login
 
-  @librarian @staff @wip
+  @librarian @staff
   Scenario:Login as an librarian
      Given I am on the login page
       When I login as librarian user

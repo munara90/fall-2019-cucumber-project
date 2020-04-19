@@ -1,7 +1,7 @@
 #control+space--> to get the options of already used
 Feature: Login with parameters
 
-  @wip
+
   Scenario: Login as librarian 11
     Given I am on the login page
     When I enter username "ibrarian11@library"
