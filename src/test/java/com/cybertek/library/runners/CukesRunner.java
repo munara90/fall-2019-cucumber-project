@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/cybertek/library/step_definitions",
-        dryRun = true, //--> should be false ro print
+        dryRun = false, //--> should be false ro print
         tags = "@wip"
          // tags="@smoke"
          // tags="@librarian"
